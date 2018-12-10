@@ -14,7 +14,7 @@
 <body>
 
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-        <a class="navbar-brand" href="#">CONTROL PANEL</a>
+        <a class="navbar-brand" href="#"><b>WASHNGO</b></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse"
             aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -22,15 +22,23 @@
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="index.html">Control Panel</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://github.com/jiaweikhong/Term4_Java1D">GitHub (Android app)</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://github.com/tlkh/LaundryApp-backend">GitHub (Web GUI)</a>
                 </li>
         </div>
     </nav>
 
     <main role="main" class="container">
         <div class="jumbotron">
-            <h1>WashNGo</h1>
-            <p class="lead">This is a super secret control panel that lets you simulate our IoT setup.</p>
+            <h2>WashNGo!</h2>
+            <p class="lead">This is a <b><em>super secret</em></b> control panel that lets you simulate our IoT setup.<br>
+                You can trigger the <code>START</code>, <code>COLLECT</code> buttons, as well as time travel 44m 40s
+                into the future.</p>
         </div>
         <div class="row">
             <div class="col-md-4">
@@ -41,7 +49,7 @@
                     <li class="list-group-item disabled">Washers</li>
                     <li class="list-group-item">
                         <h5>Washer 01</h5>
-                        <div class="btn-group btn-group-lg" role="group">
+                        <div class="btn-group " role="group">
                             <a class="btn btn-danger" href="http://13.229.114.67:5000/start?block=block_55&machine=W01">Start</a><br>
                             <a class="btn btn-warning" href="http://13.229.114.67:5000/fast_forward?block=block_55&machine=W01">Fast
                                 Forward</a><br>
@@ -50,7 +58,7 @@
                     </li>
                     <li class="list-group-item">
                         <h5>Washer 02</h5>
-                        <div class="btn-group btn-group-lg" role="group">
+                        <div class="btn-group " role="group">
                             <a class="btn btn-danger" href="http://13.229.114.67:5000/start?block=block_55&machine=W02">Start</a><br>
                             <a class="btn btn-warning" href="http://13.229.114.67:5000/fast_forward?block=block_55&machine=W02">Fast
                                 Forward</a><br>
@@ -59,7 +67,7 @@
                     </li>
                     <li class="list-group-item list-group-item-danger">
                         <h5>Washer <b>ALL</b></h5>
-                        <div class="btn-group btn-group-lg" role="group">
+                        <div class="btn-group " role="group">
                             <a class="btn btn-danger" href="http://13.229.114.67:5000/start?block=block_55&machine=allw">Start</a><br>
                             <a class="btn btn-warning" href="http://13.229.114.67:5000/fast_forward?block=block_55&machine=allw">Fast
                                 Forward</a><br>
@@ -69,7 +77,7 @@
                     <li class="list-group-item disabled">Dryers</li>
                     <li class="list-group-item">
                         <h5>Dryer 01</h5>
-                        <div class="btn-group btn-group-lg" role="group">
+                        <div class="btn-group " role="group">
                             <a class="btn btn-danger" href="http://13.229.114.67:5000/start?block=block_55&machine=D01">Start</a><br>
                             <a class="btn btn-warning" href="http://13.229.114.67:5000/fast_forward?block=block_55&machine=D01">Fast
                                 Forward</a><br>
@@ -78,7 +86,7 @@
                     </li>
                     <li class="list-group-item">
                         <h5>Dryer 02</h5>
-                        <div class="btn-group btn-group-lg" role="group">
+                        <div class="btn-group " role="group">
                             <a class="btn btn-danger" href="http://13.229.114.67:5000/start?block=block_55&machine=D02">Start</a><br>
                             <a class="btn btn-warning" href="http://13.229.114.67:5000/fast_forward?block=block_55&machine=D02">Fast
                                 Forward</a><br>
@@ -87,7 +95,7 @@
                     </li>
                     <li class="list-group-item list-group-item-danger">
                         <h5>Dryer <b>ALL</b></h5>
-                        <div class="btn-group btn-group-lg" role="group">
+                        <div class="btn-group " role="group">
                             <a class="btn btn-danger" href="http://13.229.114.67:5000/start?block=block_55&machine=alld">Start</a><br>
                             <a class="btn btn-warning" href="http://13.229.114.67:5000/fast_forward?block=block_55&machine=alld">Fast
                                 Forward</a><br>
@@ -104,7 +112,7 @@
                     <li class="list-group-item disabled">Washers</li>
                     <li class="list-group-item">
                         <h5>Washer 01</h5>
-                        <div class="btn-group btn-group-lg" role="group">
+                        <div class="btn-group " role="group">
                             <a class="btn btn-danger" href="http://13.229.114.67:5000/start?block=block_57&machine=W01">Start</a><br>
                             <a class="btn btn-warning" href="http://13.229.114.67:5000/fast_forward?block=block_57&machine=W01">Fast
                                 Forward</a><br>
@@ -113,7 +121,7 @@
                     </li>
                     <li class="list-group-item">
                         <h5>Washer 02</h5>
-                        <div class="btn-group btn-group-lg" role="group">
+                        <div class="btn-group " role="group">
                             <a class="btn btn-danger" href="http://13.229.114.67:5000/start?block=block_57&machine=W02">Start</a><br>
                             <a class="btn btn-warning" href="http://13.229.114.67:5000/fast_forward?block=block_57&machine=W02">Fast
                                 Forward</a><br>
@@ -122,7 +130,7 @@
                     </li>
                     <li class="list-group-item list-group-item-danger">
                         <h5>Washer <b>ALL</b></h5>
-                        <div class="btn-group btn-group-lg" role="group">
+                        <div class="btn-group " role="group">
                             <a class="btn btn-danger" href="http://13.229.114.67:5000/start?block=block_57&machine=allw">Start</a><br>
                             <a class="btn btn-warning" href="http://13.229.114.67:5000/fast_forward?block=block_57&machine=allw">Fast
                                 Forward</a><br>
@@ -132,7 +140,7 @@
                     <li class="list-group-item disabled">Dryers</li>
                     <li class="list-group-item">
                         <h5>Dryer 01</h5>
-                        <div class="btn-group btn-group-lg" role="group">
+                        <div class="btn-group " role="group">
                             <a class="btn btn-danger" href="http://13.229.114.67:5000/start?block=block_57&machine=D01">Start</a><br>
                             <a class="btn btn-warning" href="http://13.229.114.67:5000/fast_forward?block=block_57&machine=D01">Fast
                                 Forward</a><br>
@@ -141,7 +149,7 @@
                     </li>
                     <li class="list-group-item">
                         <h5>Dryer 02</h5>
-                        <div class="btn-group btn-group-lg" role="group">
+                        <div class="btn-group " role="group">
                             <a class="btn btn-danger" href="http://13.229.114.67:5000/start?block=block_57&machine=D02">Start</a><br>
                             <a class="btn btn-warning" href="http://13.229.114.67:5000/fast_forward?block=block_57&machine=D02">Fast
                                 Forward</a><br>
@@ -150,7 +158,7 @@
                     </li>
                     <li class="list-group-item list-group-item-danger">
                         <h5>Dryer <b>ALL</b></h5>
-                        <div class="btn-group btn-group-lg" role="group">
+                        <div class="btn-group " role="group">
                             <a class="btn btn-danger" href="http://13.229.114.67:5000/start?block=block_57&machine=alld">Start</a><br>
                             <a class="btn btn-warning" href="http://13.229.114.67:5000/fast_forward?block=block_57&machine=alld">Fast
                                 Forward</a><br>
@@ -167,7 +175,7 @@
                     <li class="list-group-item disabled">Washers</li>
                     <li class="list-group-item">
                         <h5>Washer 01</h5>
-                        <div class="btn-group btn-group-lg" role="group">
+                        <div class="btn-group " role="group">
                             <a class="btn btn-danger" href="http://13.229.114.67:5000/start?block=block_59&machine=W01">Start</a><br>
                             <a class="btn btn-warning" href="http://13.229.114.67:5000/fast_forward?block=block_59&machine=W01">Fast
                                 Forward</a><br>
@@ -176,7 +184,7 @@
                     </li>
                     <li class="list-group-item">
                         <h5>Washer 02</h5>
-                        <div class="btn-group btn-group-lg" role="group">
+                        <div class="btn-group " role="group">
                             <a class="btn btn-danger" href="http://13.229.114.67:5000/start?block=block_59&machine=W02">Start</a><br>
                             <a class="btn btn-warning" href="http://13.229.114.67:5000/fast_forward?block=block_59&machine=W02">Fast
                                 Forward</a><br>
@@ -185,7 +193,7 @@
                     </li>
                     <li class="list-group-item list-group-item-danger">
                         <h5>Washer <b>ALL</b></h5>
-                        <div class="btn-group btn-group-lg" role="group">
+                        <div class="btn-group " role="group">
                             <a class="btn btn-danger" href="http://13.229.114.67:5000/start?block=block_59&machine=allw">Start</a><br>
                             <a class="btn btn-warning" href="http://13.229.114.67:5000/fast_forward?block=block_59&machine=allw">Fast
                                 Forward</a><br>
@@ -195,7 +203,7 @@
                     <li class="list-group-item disabled">Dryers</li>
                     <li class="list-group-item">
                         <h5>Dryer 01</h5>
-                        <div class="btn-group btn-group-lg" role="group">
+                        <div class="btn-group " role="group">
                             <a class="btn btn-danger" href="http://13.229.114.67:5000/start?block=block_59&machine=D01">Start</a><br>
                             <a class="btn btn-warning" href="http://13.229.114.67:5000/fast_forward?block=block_59&machine=D01">Fast
                                 Forward</a><br>
@@ -204,7 +212,7 @@
                     </li>
                     <li class="list-group-item">
                         <h5>Dryer 02</h5>
-                        <div class="btn-group btn-group-lg" role="group">
+                        <div class="btn-group " role="group">
                             <a class="btn btn-danger" href="http://13.229.114.67:5000/start?block=block_59&machine=D02">Start</a><br>
                             <a class="btn btn-warning" href="http://13.229.114.67:5000/fast_forward?block=block_59&machine=D02">Fast
                                 Forward</a><br>
@@ -213,7 +221,7 @@
                     </li>
                     <li class="list-group-item list-group-item-danger">
                         <h5>Dryer <b>ALL</b></h5>
-                        <div class="btn-group btn-group-lg" role="group">
+                        <div class="btn-group " role="group">
                             <a class="btn btn-danger" href="http://13.229.114.67:5000/start?block=block_59&machine=alld">Start</a><br>
                             <a class="btn btn-warning" href="http://13.229.114.67:5000/fast_forward?block=block_59&machine=alld">Fast
                                 Forward</a><br>
