@@ -92,7 +92,7 @@ class event_loop():
         elif machineid[0] == "D":
             machine_ref = block_ref.child("dryers").child(machineid)
         else:
-            print("[ERROR] Invalid machine id")
+            print("[ERROR] Invalid machine id", machineid)
             return False
 
         machine_ref.child("btnCollect").set(0)
