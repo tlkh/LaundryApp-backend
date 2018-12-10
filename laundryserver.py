@@ -62,19 +62,19 @@ class event_loop():
     def getUnixTime(self):
         return int(datetime.now(tz=timezone.utc).timestamp())
 
-    def getMachineRef(self, block, machineid):
+    def getMachineRef(self, block, machine_id):
         block_ref = db.reference("/"+block+"/")
-        if machineid[0] == "W":
-            machine_ref = block_ref.child("washers").child(machineid)
-        elif machineid[0] == "D":
-            machine_ref = block_ref.child("dryers").child(machineid)
+        if machine_id[0] == "W":
+            machine_ref = block_ref.child("washers").child(machine_id)
+        elif machine_id[0] == "D":
+            machine_ref = block_ref.child("dryers").child(machine_id)
         else:
-            print("[ERROR] Invalid machine id")
+            print("[ERROR] Invalid machine id", machine_id)
             return False
         return machine_ref
 
-    def updateMachineStartTime(self, block, machineid):
-        machine_ref = self.getMachineRef(block, machineid)
+    def updateMachineStartTime(self, block, machine_id):
+        machine_ref = self.getMachineRef(block, machine_id)
         unixtime = self.getUnixTime()
         machine_ref.child("startTime").set(unixtime-5)
         machine_ref.child("collected").set("false")
@@ -85,21 +85,21 @@ class event_loop():
 
         return True
 
-    def resetScratch(self, block, machineid):
+    def resetScratch(self, block, machine_id):
         block_ref = db.reference("/scratch/"+block+"/")
-        if machineid[0] == "W":
-            machine_ref = block_ref.child("washers").child(machineid)
-        elif machineid[0] == "D":
-            machine_ref = block_ref.child("dryers").child(machineid)
+        if machine_id[0] == "W":
+            machine_ref = block_ref.child("washers").child(machine_id)
+        elif machine_id[0] == "D":
+            machine_ref = block_ref.child("dryers").child(machine_id)
         else:
-            print("[ERROR] Invalid machine id", machineid)
+            print("[ERROR] Invalid machine id", machine_id)
             return False
 
         machine_ref.child("btnCollect").set(0)
         machine_ref.child("btnStart").set(0)
 
-    def updateMachineCollectedState(self, block, machineid):
-        machine_ref = self.getMachineRef(block, machineid)
+    def updateMachineCollectedState(self, block, machine_id):
+        machine_ref = self.getMachineRef(block, machine_id)
 
         topic_name = machine_ref.child("topicName").get()
         print("Sending to:", topic_name)
@@ -151,23 +151,32 @@ class event_loop():
                     self.updateMachineCollectedState(block, dryer)
                     self.resetScratch(block, dryer)
 
-    def fastForward(self, block, machineid):
-        machine_ref = self.getMachineRef(block, machineid)
-        unixtime = self.getUnixTime()
-        machine_ref.child("startTime").set(int(unixtime-45*60+20))
+    def fastForward(self, block, machine_id):
+        if machine_id == "allw":
+            for i in range(1,10):
+                self.fastForward(block, "W0"+str(i))
+            for i in range(10,13):
+                self.fastForward(block, "W"+str(i))
+        elif machine_id == "alld":
+            for i in range(1,10):
+                self.fastForward(block, "D0"+str(i))
+        else:
+            machine_ref = self.getMachineRef(block, machine_id)
+            unixtime = self.getUnixTime()
+            machine_ref.child("startTime").set(int(unixtime-45*60+20))
         return True
 
-    def startMachine(self, block, machineid):
-        if machineid == "allw":
+    def startMachine(self, block, machine_id):
+        if machine_id == "allw":
             for i in range(1,10):
                 self.startMachine(block, "W0"+str(i))
             for i in range(10,13):
                 self.startMachine(block, "W"+str(i))
-        elif machineid == "alld":
+        elif machine_id == "alld":
             for i in range(1,10):
                 self.startMachine(block, "D0"+str(i))
         else:
-            machine_ref = self.getMachineRef(block, machineid)
+            machine_ref = self.getMachineRef(block, machine_id)
             unixtime = self.getUnixTime()
             machine_ref.child("startTime").set(unixtime-5)
             machine_ref.child("collected").set("false")
@@ -178,16 +187,25 @@ class event_loop():
 
         return True
 
-    def collectMachine(self, block, machineid, status="true"):
-        machine_ref = self.getMachineRef(block, machineid)
-        topic_name = machine_ref.child("topicName").get()
-        print("Sending to:", topic_name)
-        block_no, machine_type, mid = topic_name.split("_")
-        message_body = "Block "+block_no+" "+machine_type.capitalize()+mid + \
-            " Machine Available"
-        self.send_message(topic_name, message_body)
+    def collectMachine(self, block, machine_id, status="true"):
+        if machine_id == "allw":
+            for i in range(1,10):
+                self.collectMachine(block, "W0"+str(i))
+            for i in range(10,13):
+                self.collectMachine(block, "W"+str(i))
+        elif machine_id == "alld":
+            for i in range(1,10):
+                self.collectMachine(block, "D0"+str(i))
+        else:
+            machine_ref = self.getMachineRef(block, machine_id)
+            topic_name = machine_ref.child("topicName").get()
+            print("Sending to:", topic_name)
+            block_no, machine_type, mid = topic_name.split("_")
+            message_body = "Block "+block_no+" "+machine_type.capitalize()+mid + \
+                " Machine Available"
+            self.send_message(topic_name, message_body)
 
-        machine_ref.child("collected").set(status)
+            machine_ref.child("collected").set(status)
         return True
 
     def checkCompleted(self):
